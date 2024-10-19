@@ -1,32 +1,39 @@
-const messages = [
-    "Hello!",
-    "How are you?",
-    "Good morning!",
-    "Have a great day!",
-    "What's up?",
-    "Goodbye!",
-    "Take care!",
-    "See you later!",
-    "Thank you!",
-    "You're welcome!",
-    "Nice to meet you!",
-    "What's new?",
-    "Stay safe!",
-    "Happy Birthday!",
-    "Congratulations!",
-    "Good luck!",
-    "Let's hang out!",
-    "Cheers!",
-    "Excuse me!",
-    "Sorry!"
-  ]
+const Subjects = ['I', 'You', 'She', 'He', 'They', 'We'];
+const PluVerbs = ["like", "love", "hate"];
+const SingVerbs = ["likes", "loves", "hates"];
+const Objects = ["playing football", "cooking curry", "swimming", "going to school", "coding"];
 
 
-const returnMessage = (msg) =>
+const isSubjectPru = (sub) =>
 {
-    const randomIndex = Math.floor(Math.random() * msg.length);
-    return msg[randomIndex];
+    if (sub === 'I' || sub === 'You' || sub === 'They' || sub === 'We')
+    {
+        return true;
+    }
+
+    return false;
 }
 
-console.log(returnMessage(messages));
+const getRandom = (obj) =>
+{
+    const randomIndex = Math.floor(Math.random() * obj.length);
+    return obj[randomIndex];
+}
 
+const getGerenate = () => {
+    const getSub = getRandom(Subjects);
+    let getVerb;
+    if (isSubjectPru(getSub))
+    {
+        getVerb = getRandom(PluVerbs);
+    }
+    else {
+        getVerb = getRandom(SingVerbs);
+    }
+
+    const getObj = getRandom(Objects);
+
+    console.log(getSub + " " + getVerb + " " + getObj + ". ");
+}
+
+getGerenate();
